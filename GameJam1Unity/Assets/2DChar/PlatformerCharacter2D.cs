@@ -57,12 +57,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 			lastFire = Time.time;
 		}
-		
-		if (Input.GetKeyDown(KeyCode.R)) 
-		{
-			rigidbody2D.position = new Vector3(7, 32, 0); 
-			
-		}
+
 
 		
 	}

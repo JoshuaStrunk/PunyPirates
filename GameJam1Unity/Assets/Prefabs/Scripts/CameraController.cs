@@ -42,25 +42,10 @@ public class CameraController : MonoBehaviour {
 			camera.orthographicSize = maxDiff;
 		}
 
-		/*
-		if(Input.GetKey(KeyCode.UpArrow)) {
-			transform.position += Vector3.up * smoothing;
+		if (Input.GetKeyDown(KeyCode.R)) 
+		{
+			Application.LoadLevel(Application.loadedLevel);
+			
 		}
-		if(Input.GetKey(KeyCode.DownArrow)) {
-			transform.position -= Vector3.up* smoothing;
-		}
-		if(Input.GetKey(KeyCode.RightArrow)) {
-			transform.position += Vector3.right* smoothing;
-		}
-		if(Input.GetKey(KeyCode.LeftArrow)) {
-			transform.position -= Vector3.right* smoothing;
-		}
-		if(Input.GetMouseButton(3)) {
-			camera.orthographicSize += smoothing;
-		}
-		if(Input.GetMouseButton(4)) {
-			camera.orthographicSize -= smoothing;
-		}
-		*/
 	}
 }

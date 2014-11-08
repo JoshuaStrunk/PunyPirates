@@ -106,7 +106,7 @@ MonoBehaviour:
   jumpMax: 2
   jumpWait: .25
   projectile: {fileID: 100000, guid: 17fe55b2b1188e24f943fe19a8d13a2b, type: 2}
-  rateOfFire: .5
+  rateOfFire: .100000001
   playerID: 0
 --- !u!114 &11400002
 MonoBehaviour:
