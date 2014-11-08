@@ -5,24 +5,83 @@ public class PlatformerCharacter2D : MonoBehaviour
 	bool facingRight = true;							// For determining which way the player is currently facing.
 
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
-	[SerializeField] float jumpForce = 400f;			// Amount of force added when the player jumps.	
+	[SerializeField] float jumpForce = 425f;			// Amount of force added when the player jumps.	
 
 	[SerializeField] bool airControl = false;			// Whether or not a player can steer while jumping;
 	[SerializeField] LayerMask whatIsGround;			// A mask determining what is ground to the character
 
+    private bool jump;
+	public int jumpMax = 2;
+	private int jumpCount;
+
+	public GameObject projectile;
+
+
     void Start()
 	{
-
+		jumpCount = jumpMax;
 	}
 
+	//Non-fixed update cuz we never want to miss a jump
+	void Update()
+	{
+		//Uses input manager, space = jump
+		if (Input.GetButtonDown("Jump")) jump = true;
 
+		//Left click to shoot
+		if (Input.GetButtonDown("Fire1")) 
+		{
+			//Casts ray from click point
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			//At a distance of zero (since its 2d) where is point in space?
+			Vector3 worldClickPos3D = ray.GetPoint(0);
+
+			Vector2 aimVec = new Vector2(rigidbody2D.position.x - worldClickPos3D.x, rigidbody2D.position.y - worldClickPos3D.y);
+			aimVec.Normalize();
+
+			GameObject newProjectile = Instantiate(projectile, rigidbody2D.position + aimVec*-2, Quaternion.identity) as GameObject;
+			newProjectile.rigidbody2D.AddForce(aimVec*-2000);
+
+			Debug.Log(aimVec*-2000);
+			
+
+			
+		}
+		
+		if (Input.GetKeyDown(KeyCode.R)) 
+		{
+			rigidbody2D.position = new Vector3(7, 32, 0); 
+			
+		}
+
+		
+	}
+	
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+
+		if (coll.contacts[0].point.y < rigidbody2D.position.y)
+		{
+			jumpCount = jumpMax; 
+		}
+	}
+	
+	//Do actual physics and shiz fixed so we don't get different results at different dt's
 	void FixedUpdate()
 	{
 		//Fake added "gravity" to give it that sweet classic platformer feel
-		rigidbody2D.AddForce(new Vector2(0f, -50));
+		rigidbody2D.AddForce(new Vector2(0f, -40));
+
+		float h = Input.GetAxis("Horizontal");
+
+		// Pass all parameters to the character control script.
+		Move( h , jump );
+
+		jump = false;
 	}
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool jump)
 	{
 
 		// Move the character
@@ -39,8 +98,12 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 
         // If the player should jump...
-        if (jump) {
+        if (jump && jumpCount > 0) {
+
+			jumpCount--;
+
             // Add a vertical force to the player.
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0); 
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
         }
 	}
