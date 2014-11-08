@@ -14,12 +14,15 @@ public class OceanBuilder : MonoBehaviour {
 
 	private int numChunks;
 	private List<GameObject> chunkList = new List<GameObject>();
+	private float heightOffset;
 
 	// Use this for initialization
 	void Start () {
 
 		//Solves for number of chunks based off ocean width and chunkWidth
 		numChunks = (int)(transform.localScale.x / chunkWidth);
+
+		heightOffset = transform.position.y;
 
 		//Creates and places the correct number of chunks
 		for(int i = 0; i < numChunks; i++)
@@ -44,7 +47,7 @@ public class OceanBuilder : MonoBehaviour {
 			float TwoPi = Mathf.PI*2.0f;
 
 			//Wow look at this piece of shit periodic sine function, it fucking WORKS
-			chunk.transform.position = new Vector3(chunk.transform.position.x, Mathf.Sin((((Time.time+(TwoPi/(float)numChunks*i))*frequency)%TwoPi))*amplitude, chunk.transform.position.z);
+			chunk.transform.position = new Vector3(chunk.transform.position.x, Mathf.Sin((((Time.time+(TwoPi/(float)numChunks*i))*frequency)%TwoPi))*amplitude + heightOffset, chunk.transform.position.z);
 		}
 	}
 
