@@ -7,60 +7,39 @@ public class PlatformerCharacter2D : MonoBehaviour
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
 	[SerializeField] float jumpForce = 400f;			// Amount of force added when the player jumps.	
 
-	[Range(0, 1)]
-	[SerializeField] float crouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
-	
 	[SerializeField] bool airControl = false;			// Whether or not a player can steer while jumping;
 	[SerializeField] LayerMask whatIsGround;			// A mask determining what is ground to the character
-	
-	Transform groundCheck;								// A position marking where to check if the player is grounded.
-	float groundedRadius = .2f;							// Radius of the overlap circle to determine if grounded
-	bool grounded = false;								// Whether or not the player is grounded.
-	float ceilingRadius = .01f;							// Radius of the overlap circle to determine if the player can stand up
-
 
     void Start()
 	{
-		// Setting up references.
-		groundCheck = GameObject.Find("DeleteMe").transform;
+
 	}
 
 
 	void FixedUpdate()
 	{
-		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-		grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-
+		//Fake added "gravity" to give it that sweet classic platformer feel
 		rigidbody2D.AddForce(new Vector2(0f, -50));
-
-
 	}
-
 
 	public void Move(float move, bool crouch, bool jump)
 	{
 
-		//only control the player if grounded or airControl is turned on
-		if(grounded || airControl)
-		{
-			// Reduce the speed if crouching by the crouchSpeed multiplier
-			move = (crouch ? move * crouchSpeed : move);
-
-			// Move the character
-			rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+		// Move the character
+		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
 			
-			// If the input is moving the player right and the player is facing left...
-			if(move > 0 && !facingRight)
-				// ... flip the player.
-				Flip();
-			// Otherwise if the input is moving the player left and the player is facing right...
-			else if(move < 0 && facingRight)
-				// ... flip the player.
-				Flip();
-		}
+		// If the input is moving the player right and the player is facing left...
+		if(move > 0 && !facingRight)
+			// ... flip the player.
+			Flip();
+		// Otherwise if the input is moving the player left and the player is facing right...
+		else if(move < 0 && facingRight)
+			// ... flip the player.
+			Flip();
+
 
         // If the player should jump...
-        if (grounded && jump) {
+        if (jump) {
             // Add a vertical force to the player.
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
         }
