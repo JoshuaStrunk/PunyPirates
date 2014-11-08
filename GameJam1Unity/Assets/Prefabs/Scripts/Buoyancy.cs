@@ -15,11 +15,14 @@ public class Buoyancy : MonoBehaviour {
 	void Update () {
 	}
 
+	void OnCollisionEnter2D() {
+		//Debug.Log("Collided");
+	}
+
 	void OnTriggerEnter2D() {
 		rigidbody2D.velocity = Vector2.zero; //rigidbody.velocity * .1f;
 	}
 	void OnTriggerStay2D() {
-		Debug.Log("In Watter");
 		rigidbody2D.AddForce(Vector2.up * BuoantForce);
 	}
 }
