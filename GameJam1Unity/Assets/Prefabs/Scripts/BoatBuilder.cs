@@ -125,7 +125,7 @@ public class BoatBuilder : MonoBehaviour {
 
 	void OnDrawGizmos() {
 		Gizmos.color = new Color(1, 0, 0, 0.5F);
-		Gizmos.DrawCube(transform.position + new Vector3(width/2, -height/2, 0),new Vector3(width,height,1));
+		Gizmos.DrawCube(transform.position + new Vector3(width/2, height/2, 0),new Vector3(width,height,1));
 	}
 	
 }
