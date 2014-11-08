@@ -15,11 +15,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 	private int jumpCount;
 	public float jumpWait = .25f;
 	private float lastJump = 0f;
-
-	public GameObject projectile;
-	public float rateOfFire = .5f;
-	private float lastFire = 0f;
 	public int playerID = 0;
+	
 
 
     void Start()
@@ -36,27 +33,6 @@ public class PlatformerCharacter2D : MonoBehaviour
 			lastJump = Time.time;
 		}
 
-		//Left click to shoot
-		if ( ((Mathf.Abs(Input.GetAxis("FireHorizontal"+playerID)) > .2f) || (Mathf.Abs(Input.GetAxis("FireVertical"+playerID)) > .2f)) && ((Time.time - lastFire) > rateOfFire) )
-		{
-			//Casts ray from click point
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			//At a distance of zero (since its 2d) where is point in space?
-			Vector3 worldClickPos3D = ray.GetPoint(0);
-
-			//Vector2 aimVec = new Vector2(rigidbody2D.position.x - worldClickPos3D.x, rigidbody2D.position.y - worldClickPos3D.y);
-			Vector2 aimVec = new Vector2(Input.GetAxis("FireHorizontal"+playerID), Input.GetAxis("FireVertical"+playerID));
-			aimVec.Normalize();
-
-
-
-			GameObject newProjectile = Instantiate(projectile, rigidbody2D.position + aimVec*-2, Quaternion.identity) as GameObject;
-			//newProjectile.transform.parent = transform;
-			newProjectile.rigidbody2D.AddForce(aimVec*-2000);
-
-			lastFire = Time.time;
-		}
 
 
 		

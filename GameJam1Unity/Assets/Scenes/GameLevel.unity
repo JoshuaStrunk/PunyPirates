@@ -596,6 +596,7 @@ GameObject:
   - 50: {fileID: 1877648866}
   - 114: {fileID: 1877648865}
   - 114: {fileID: 1877648871}
+  - 114: {fileID: 1877648872}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -623,8 +624,6 @@ MonoBehaviour:
     m_Bits: 4294967295
   jumpMax: 2
   jumpWait: .25
-  projectile: {fileID: 100000, guid: 17fe55b2b1188e24f943fe19a8d13a2b, type: 2}
-  rateOfFire: .100000001
   playerID: 1
 --- !u!50 &1877648866
 Rigidbody2D:
@@ -709,6 +708,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   massaging: 1
+--- !u!114 &1877648872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: e76121dfb58106443aad612a5abf3bf7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1305932928}
+  m_GameObject: {fileID: 1877648864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1071972fde3a8c749ab7624351d5fb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 100000, guid: 13560e46369a755489ef54670c4468d8, type: 2}
+  playerID: 0
 --- !u!1001 &1877997819
 Prefab:
   m_ObjectHideFlags: 0
@@ -767,6 +780,7 @@ GameObject:
   - 50: {fileID: 1964627483}
   - 114: {fileID: 1964627482}
   - 114: {fileID: 1964627488}
+  - 114: {fileID: 1964627489}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -794,8 +808,6 @@ MonoBehaviour:
     m_Bits: 4294967295
   jumpMax: 2
   jumpWait: .25
-  projectile: {fileID: 100000, guid: 17fe55b2b1188e24f943fe19a8d13a2b, type: 2}
-  rateOfFire: .100000001
   playerID: 0
 --- !u!50 &1964627483
 Rigidbody2D:
@@ -880,6 +892,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   massaging: 1
+--- !u!114 &1964627489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: e76121dfb58106443aad612a5abf3bf7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1233945563}
+  m_GameObject: {fileID: 1964627481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1071972fde3a8c749ab7624351d5fb38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 100000, guid: 13560e46369a755489ef54670c4468d8, type: 2}
+  playerID: 0
 --- !u!1 &1997670056
 GameObject:
   m_ObjectHideFlags: 0
