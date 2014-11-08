@@ -4,17 +4,17 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
 	public float smoothing = .5f;
+	public float boarder = 1f;
 	public float minViewSize = 20f;
 	public float maxViewSize = 200f;
-
-	GameObject[] players;
 	// Use this for initialization
 	void Start () {
-		players = GameObject.FindGameObjectsWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		GameObject[] players;
+		players = GameObject.FindGameObjectsWithTag("Player");
 		Vector3 averagePlayerPos = Vector3.zero;
 		foreach(GameObject player in players) {
 			averagePlayerPos += player.transform.position;
@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour {
 				maxDiff = diffOffAverage;
 			}
 		}
+		maxDiff = maxDiff * camera.aspect + boarder;
 		if(maxDiff < minViewSize) {
 			camera.orthographicSize = minViewSize;
 		}

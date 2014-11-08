@@ -13,8 +13,13 @@ public class PlatformerCharacter2D : MonoBehaviour
     private bool jump;
 	public int jumpMax = 2;
 	private int jumpCount;
+	public float jumpWait = .25f;
+	private float lastJump = 0f;
 
 	public GameObject projectile;
+	public float rateOfFire = .5f;
+	private float lastFire = 0f;
+	public int playerID = 0;
 
 
     void Start()
@@ -26,10 +31,13 @@ public class PlatformerCharacter2D : MonoBehaviour
 	void Update()
 	{
 		//Uses input manager, space = jump
-		if (Input.GetButtonDown("Jump")) jump = true;
+		if ((Input.GetAxis("Vertical"+playerID) > .1f) && ((Time.time - lastJump) > jumpWait) ){
+			jump = true;
+			lastJump = Time.time;
+		}
 
 		//Left click to shoot
-		if (Input.GetButtonDown("Fire1")) 
+		if ( ((Mathf.Abs(Input.GetAxis("FireHorizontal"+playerID)) > .2f) || (Mathf.Abs(Input.GetAxis("FireVertical"+playerID)) > .2f)) && ((Time.time - lastFire) > rateOfFire) )
 		{
 			//Casts ray from click point
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -37,16 +45,17 @@ public class PlatformerCharacter2D : MonoBehaviour
 			//At a distance of zero (since its 2d) where is point in space?
 			Vector3 worldClickPos3D = ray.GetPoint(0);
 
-			Vector2 aimVec = new Vector2(rigidbody2D.position.x - worldClickPos3D.x, rigidbody2D.position.y - worldClickPos3D.y);
+			//Vector2 aimVec = new Vector2(rigidbody2D.position.x - worldClickPos3D.x, rigidbody2D.position.y - worldClickPos3D.y);
+			Vector2 aimVec = new Vector2(Input.GetAxis("FireHorizontal"+playerID), Input.GetAxis("FireVertical"+playerID));
 			aimVec.Normalize();
 
+
+
 			GameObject newProjectile = Instantiate(projectile, rigidbody2D.position + aimVec*-2, Quaternion.identity) as GameObject;
+			//newProjectile.transform.parent = transform;
 			newProjectile.rigidbody2D.AddForce(aimVec*-2000);
 
-			Debug.Log(aimVec*-2000);
-			
-
-			
+			lastFire = Time.time;
 		}
 		
 		if (Input.GetKeyDown(KeyCode.R)) 
@@ -73,7 +82,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		//Fake added "gravity" to give it that sweet classic platformer feel
 		rigidbody2D.AddForce(new Vector2(0f, -40));
 
-		float h = Input.GetAxis("Horizontal");
+		float h = Input.GetAxis("Horizontal"+playerID);
 
 		// Pass all parameters to the character control script.
 		Move( h , jump );
