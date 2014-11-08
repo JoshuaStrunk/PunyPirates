@@ -22,7 +22,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     void Start()
 	{
 		// Setting up references.
-		groundCheck = GameObject.Find("GroundCheck").transform;
+		groundCheck = GameObject.Find("DeleteMe").transform;
 	}
 
 

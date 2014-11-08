@@ -421,7 +421,7 @@ GameObject:
   - 23: {fileID: 643906294}
   - 61: {fileID: 643906293}
   m_Layer: 0
-  m_Name: GroundCheck
+  m_Name: DeleteMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
