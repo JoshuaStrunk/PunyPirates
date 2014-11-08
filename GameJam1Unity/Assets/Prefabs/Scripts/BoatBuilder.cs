@@ -5,17 +5,29 @@ public class BoatBuilder : MonoBehaviour {
 
 	public int boatType = 0;
 	public GameObject boatChunk;
+	public Texture2D[] boatTypes;
 
 	GameObject[,] boatChunks;
 
 	int width = 16;
-	int height = 6;
-	int boatsNum = 2;
+	int height = 16;
+	//int boatsNum = 2;
 	int[,,] boats;
 
 	// Use this for initialization
 	void Start () {
+
+		boats = new int[boatTypes.Length,height,width];
+		for(int i=0; i<boatTypes.Length; i++) {
+			for(int j=0; j<width; j++) {
+				for(int k=0; k<height; k++) {
+					boats[i,k,j] = 1 - (int) boatTypes[i].GetPixel(j, height - k - 1).grayscale;
+				}
+			}
+		}
+
 		//boatsNum, height, width
+		/*
 		boats = new int[,,]{
 			{
 				{1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
@@ -35,7 +47,7 @@ public class BoatBuilder : MonoBehaviour {
 			}
 
 		};
-
+		*/
 
 
 		boatChunks = new GameObject[width,height];

@@ -41,6 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boatType: 0
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
+  boatTypes:
+  - {fileID: 2800000, guid: d0ea00170e637c742a7a5a3a51cc0e0e, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
