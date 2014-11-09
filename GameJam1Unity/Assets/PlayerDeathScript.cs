@@ -6,7 +6,7 @@ public class PlayerDeathScript : MonoBehaviour {
 	public int playerID = 0;
 	public void kill() {
 
-		CameraController.playerScores[1 - (playerID % 2)] += 1;
+		GameController.playerLoss(playerID);
 
 		Application.LoadLevel(Application.loadedLevel);
 	}

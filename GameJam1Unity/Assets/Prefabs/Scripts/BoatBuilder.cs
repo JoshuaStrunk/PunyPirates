@@ -7,6 +7,8 @@ public class BoatBuilder : MonoBehaviour {
 	public GameObject boatChunk;
 	public Texture2D[] boatTypes;
 
+	public float strayDistance = 20f;
+
 	GameObject[,] boatChunks;
 
 	int width = 16;
@@ -124,6 +126,22 @@ public class BoatBuilder : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	void FixedUpdate() {
+		for(int i = 0; i < width; i++) {
+			for(int j = 0; j<height; j++) {
+
+				if(boats[boatType,height - j - 1,i] == 1) {
+					float xPosDiff =  boatChunks[i,j].transform.position.x - transform.position.x;
+					if( Mathf.Abs(xPosDiff) > strayDistance ) {
+						boatChunks[i,j].rigidbody2D.AddForce(new Vector2(-xPosDiff, 0));
+					}
+				}
+				
+
+			}
+		}
 	}
 
 	void OnDrawGizmos() {
