@@ -14,6 +14,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
 	[SerializeField] float jumpForce = 425f;			// Amount of force added when the player jumps.	
 
+	public AudioClip jump1;
+	
 
 	public int jumpMax = 2;
 	private int jumpCount;
@@ -95,6 +97,9 @@ public class PlatformerCharacter2D : MonoBehaviour
 		if (jumpCount > 0) {
 			
 			jumpCount--;
+
+			audio.PlayOneShot(jump1);
+			
 			
 			// Add a vertical force to the player.
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0); 
