@@ -194,7 +194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 749819b25fc7b6d4ab30c943dc298f63, type: 2}
       propertyPath: chunkWidth
-      value: .5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 749819b25fc7b6d4ab30c943dc298f63, type: 2}
       propertyPath: amplitude
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6c68817c7754b449260d7a2e6cdf46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkWidth: .5
+  chunkWidth: 5
   amplitude: 2
   frequency: 1
   oceanChunkPrefab: {fileID: 100000, guid: 3633060b651c7f8429fb550e0cec78ea, type: 2}

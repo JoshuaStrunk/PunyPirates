@@ -3,14 +3,14 @@ using System.Collections;
 
 public class quickFPS : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
+		StartCoroutine (LogFPS());
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		Debug.Log(Time.deltaTime.ToString ()); 
-		
-	
+	private IEnumerator LogFPS(){
+		while (true) {
+			Debug.Log (Time.deltaTime.ToString());
+			yield return new WaitForSeconds(1);     
+		}
 	}
 }
