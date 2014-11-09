@@ -11,10 +11,11 @@ public class GameController : MonoBehaviour {
 	private static bool exists = false;
 	private static bool setup = true;
 	private static bool afterScreen = false;
-
-	PlayerIndex playerIndex = (PlayerIndex)0;
-	GamePadState state;
-	GamePadState prevState;
+	
+	GamePadState state1;
+	GamePadState prevState1;
+	GamePadState state2;
+	GamePadState prevState2;
 
 
 
@@ -61,24 +62,39 @@ public class GameController : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		prevState = state;
-		state = GamePad.GetState(playerIndex);
+		prevState1 = state1;
+		state1 = GamePad.GetState((PlayerIndex)0);
+		prevState2 = state2;
+		state2 = GamePad.GetState((PlayerIndex)1);
 
 		if(setup) {
 			if(firstTo) {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.")){
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.") || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)){
 					firstTo = false;
 				}
 			}
 			else {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), numberOfRounds +" rounds total.")) {
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), numberOfRounds +" rounds total.")|| (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)) {
 					firstTo = true;
 				}
 			}
 
+			if ((state1.ThumbSticks.Left.X > .1f) && (prevState1.ThumbSticks.Left.X < .1f) ){
+				if(numberOfRounds < 50 )
+					numberOfRounds += 1;
+			}
+			if ((state1.ThumbSticks.Left.X < -.1f) && (prevState1.ThumbSticks.Left.X > -.1f) ){
+				if(numberOfRounds > 1)
+					numberOfRounds -= 1;
+			}
+
+
+
 			numberOfRounds = (int)GUI.HorizontalSlider(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), numberOfRounds, 1f, 25f );
 
-			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2+60, 100, 30), "Start!")){
+			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2+60, 100, 30), "Start!") 
+			   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+			   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
 				setup = false;
 				Application.LoadLevel(1);
 			}
@@ -95,7 +111,9 @@ public class GameController : MonoBehaviour {
 				
 				GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
 				GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), "Next Round!") ){
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), "Next Round!") 
+				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
 					afterScreen = false;
 					currentRound += 1;
 					Application.LoadLevel(1);
@@ -118,8 +136,13 @@ public class GameController : MonoBehaviour {
 				GUIStyle player2= new GUIStyle();
 				player2.fontSize = 50;
 				player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
+
+				GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
+				GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
 				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), victoryString);
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +60, 100, 30), "Back to Setup") ){
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +60, 100, 30), "Back to Setup") 
+				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
 					afterScreen = false;
 					backToSetup();
 				}
