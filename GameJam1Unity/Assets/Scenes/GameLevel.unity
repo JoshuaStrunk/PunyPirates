@@ -334,6 +334,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
   - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  strayDistance: 20
 --- !u!1 &750847055
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +486,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
   - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  strayDistance: 20
 --- !u!4 &834161111
 Transform:
   m_ObjectHideFlags: 0
@@ -702,7 +704,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fc62d447c0f2862429a5da8912a80ecd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -823,6 +825,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
   - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  strayDistance: 20
 --- !u!1 &1858891922
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +876,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
   - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  strayDistance: 20
 --- !u!1 &1877648864
 GameObject:
   m_ObjectHideFlags: 0
