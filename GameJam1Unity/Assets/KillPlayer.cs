@@ -3,6 +3,8 @@ using System.Collections;
 
 public class KillPlayer : MonoBehaviour {
 
+	public AudioClip death;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +17,13 @@ public class KillPlayer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if(coll.tag == "Player") {
-			((PlayerDeathScript)coll.GetComponent<PlayerDeathScript>()).kill();
+			StartCoroutine(kill(coll));
 		}
+	}
+
+	IEnumerator kill(Collider2D coll) {
+		audio.PlayOneShot(death);
+		yield return new WaitForSeconds(1f);
+		((PlayerDeathScript)coll.GetComponent<PlayerDeathScript>()).kill();
 	}
 }

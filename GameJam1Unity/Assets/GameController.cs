@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour {
 			playerScores[1 - (i % 2)] += 1;
 			currentRound += 1;
 			toAfterScreen();
+
 		}
 	}
 	

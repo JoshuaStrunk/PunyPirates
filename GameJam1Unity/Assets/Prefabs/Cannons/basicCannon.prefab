@@ -39,7 +39,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: .0860000029
+  m_Volume: .0780000016
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   force: 2000
   rateOfFire: 2
   spread: 0
-  shoot1: {fileID: 8300000, guid: 7defab935af557a488cd6f083e9499df, type: 3}
+  shoot1: {fileID: 8300000, guid: 77408c75c8b91e34c9a392681dcdf5ab, type: 3}
   ammo: {fileID: 100000, guid: 17fe55b2b1188e24f943fe19a8d13a2b, type: 2}
 --- !u!1001 &100100000
 Prefab:
