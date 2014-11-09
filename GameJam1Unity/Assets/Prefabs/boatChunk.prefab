@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: fc62d447c0f2862429a5da8912a80ecd, type: 2}
+  - {fileID: 2100000, guid: 07373408f231d72469fe4b9b3b03d055, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -65,7 +65,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: .100000001
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27aed6b5c1371a4791e8b67d08799c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuoantForce: 13.1700001
+  BuoantForce: 40
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

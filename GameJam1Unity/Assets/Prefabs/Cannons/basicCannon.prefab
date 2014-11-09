@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6572736a2466c694492006238679c950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3082.92993
-  rateOfFire: 5
+  force: 2000
+  rateOfFire: 2
   spread: 0
   ammo: {fileID: 100000, guid: 17fe55b2b1188e24f943fe19a8d13a2b, type: 2}
 --- !u!1001 &100100000

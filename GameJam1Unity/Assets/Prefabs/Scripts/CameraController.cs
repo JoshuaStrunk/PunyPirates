@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour {
 				maxDiff = diffOffAverage;
 			}
 		}
-		maxDiff = maxDiff * camera.aspect + boarder;
+		maxDiff = maxDiff  + boarder;
 		if(maxDiff < minViewSize) {
 			camera.orthographicSize = minViewSize;
 		}

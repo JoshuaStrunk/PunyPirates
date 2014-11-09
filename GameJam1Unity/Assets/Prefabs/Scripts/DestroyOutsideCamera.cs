@@ -24,7 +24,7 @@ public class DestroyOutsideCamera : MonoBehaviour {
 				outside = false;
 			}
 			else if (Time.time - outsideAt > time) {
-				Destroy(gameObject);
+				SendMessage("kill");
 			}
 		}
 	}

@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
   m_LocalPosition: {x: 32.7424355, y: 31.8702965, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.85235238}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,7 +47,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f9f780d3b5a6b54468c6cf9b03321b73, type: 2}
+  - {fileID: 2100000, guid: 46097945edbfcc444ab196c1ed090daa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -70,7 +71,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 4.5
   m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -105,7 +106,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   jumpMax: 2
-  jumpWait: .25
   playerID: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -133,6 +133,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon: {fileID: 100000, guid: 13560e46369a755489ef54670c4468d8, type: 2}
   playerID: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60defb189df556441a16825298d7d8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
