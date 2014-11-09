@@ -14,12 +14,12 @@ public class PlatformerCharacter2D : MonoBehaviour
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
 	[SerializeField] float jumpForce = 425f;			// Amount of force added when the player jumps.	
 
-	[SerializeField] bool airControl = false;			// Whether or not a player can steer while jumping;
-	[SerializeField] LayerMask whatIsGround;			// A mask determining what is ground to the character
 
 	public int jumpMax = 2;
 	private int jumpCount;
 	public int playerID = 0;
+
+
 	
 
 
@@ -46,7 +46,11 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 		
 	}
-	
+
+	void OnTriggerEnter2D() {
+		rigidbody2D.velocity *= .2f;
+	}
+
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
 
@@ -63,7 +67,6 @@ public class PlatformerCharacter2D : MonoBehaviour
 	{
 
 		float h = state.ThumbSticks.Left.X;
-
 		// Pass all parameters to the character control script.
 		if(Mathf.Abs(h) > 0f) 
 		Move( h );

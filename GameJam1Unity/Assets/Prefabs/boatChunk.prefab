@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: boatChunk
   m_TagString: Untagged
@@ -66,8 +67,8 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 5
-  m_LinearDrag: .100000001
-  m_AngularDrag: .0500000007
+  m_LinearDrag: .200000003
+  m_AngularDrag: .100000001
   m_GravityScale: 1
   m_FixedAngle: 0
   m_IsKinematic: 0
@@ -96,7 +97,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27aed6b5c1371a4791e8b67d08799c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuoantForce: 250
+  BuoantForce: 120
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99298ff6e521201408d4b70ddc89b3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boatTiles:
+  - {fileID: 2800000, guid: 729f2c89f67a4ec4e89c05ba8d49f938, type: 3}
+  - {fileID: 2800000, guid: 67272408bb2ef4f4ca03e7bf006cedc2, type: 3}
+  - {fileID: 2800000, guid: 4371427d6c0324040a43cd04e7aae619, type: 3}
+  - {fileID: 2800000, guid: 80970bdf1f2316746ae0a7ec2a4e4e92, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
