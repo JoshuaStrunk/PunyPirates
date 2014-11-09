@@ -86,8 +86,15 @@ public class GameController : MonoBehaviour {
 		else if(afterScreen) {
 
 			if(!(winCheck())) {
-				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2-60, 100, 30), "Player 1: " + playerScores[0]);
-				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2-30, 100, 30), "Player 2: " + playerScores[1]);
+				GUIStyle player1= new GUIStyle();
+				player1.fontSize = 50;
+				player1.normal.textColor = Color.red;
+				GUIStyle player2= new GUIStyle();
+				player2.fontSize = 50;
+				player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
+				
+				GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
+				GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), "Next Round!") ){
 					afterScreen = false;
 					currentRound += 1;
@@ -105,8 +112,12 @@ public class GameController : MonoBehaviour {
 				else {
 					victoryString = "YOU ALL LOSE";
 				}
-				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2-60, 100, 30), "Player 1: " + playerScores[0]);
-				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2-30, 100, 30), "Player 2: " + playerScores[1]);
+				GUIStyle player1= new GUIStyle();
+				player1.fontSize = 50;
+				player1.normal.textColor = Color.red;
+				GUIStyle player2= new GUIStyle();
+				player2.fontSize = 50;
+				player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
 				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), victoryString);
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +60, 100, 30), "Back to Setup") ){
 					afterScreen = false;
@@ -120,7 +131,7 @@ public class GameController : MonoBehaviour {
 			player1.normal.textColor = Color.red;
 			GUIStyle player2= new GUIStyle();
 			player2.fontSize = 50;
-			player2.normal.textColor = Color.yellow;
+			player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
 			
 			GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
 			GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
