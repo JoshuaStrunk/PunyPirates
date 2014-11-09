@@ -28,7 +28,7 @@ public class OceanBuilder : MonoBehaviour {
 		for(int i = 0; i < numChunks; i++)
 		{
 			GameObject oceanChunk = Instantiate(oceanChunkPrefab, new Vector3((transform.position.x - transform.localScale.x/2.0f) + chunkWidth*i + .25f, transform.position.y, transform.position.z), transform.rotation) as GameObject;   
-			oceanChunk.transform.localScale = new Vector3(chunkWidth, oceanChunk.transform.localScale.y, oceanChunk.transform.localScale.z);
+			oceanChunk.transform.localScale = new Vector3(chunkWidth, oceanChunk.transform.localScale.y, transform.localScale.z);
 			oceanChunk.transform.parent = transform;
 
 			//Addots to list
