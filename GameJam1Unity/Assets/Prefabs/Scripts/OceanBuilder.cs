@@ -49,6 +49,11 @@ public class OceanBuilder : MonoBehaviour {
 			//Wow look at this piece of shit periodic sine function, it fucking WORKS
 			chunk.transform.position = new Vector3(chunk.transform.position.x, Mathf.Sin((((Time.time+(TwoPi/(float)numChunks*i))*frequency)%TwoPi))*amplitude + heightOffset, chunk.transform.position.z);
 		}
+
+	}
+
+	void FixedUpdate() {
+		amplitude += .001f;
 	}
 
 	//GO GO GADGET GIZMO!

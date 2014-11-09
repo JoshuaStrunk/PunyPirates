@@ -99,13 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
+  facingRight: 1
   maxSpeed: 15
   jumpForce: 1100
   airControl: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  whatIsGround: {}
   jumpMax: 2
+  jumpCount: 0
   playerID: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60defb189df556441a16825298d7d8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

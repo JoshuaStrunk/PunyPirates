@@ -16,6 +16,9 @@ public class BoatBuilder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (boatType < 0 ) {
+			boatType = (int)Random.Range(0f, (float) boatTypes.Length);
+		}
 
 		boats = new int[boatTypes.Length,height,width];
 		for(int i=0; i<boatTypes.Length; i++) {

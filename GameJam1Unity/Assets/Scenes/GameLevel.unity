@@ -115,7 +115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
       propertyPath: boatType
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
@@ -246,7 +246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
       propertyPath: boatType
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
@@ -324,12 +324,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f480712871bed439a233add5ab6e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatType: 0
+  boatType: -1
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
   - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
+  - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
+  - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
+  - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
+  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
 --- !u!1 &750847055
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +426,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750847055}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9174312fe601a1545a1b9043f1f1f713, type: 3}
   m_Name: 
@@ -442,6 +446,7 @@ MonoBehaviour:
   boarder: 0
   minViewSize: 10
   maxViewSize: 50
+  skin: {fileID: 0}
 --- !u!1 &834161109
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,12 +475,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f480712871bed439a233add5ab6e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatType: 1
+  boatType: -1
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
   - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
+  - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
+  - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
+  - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
+  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
 --- !u!4 &834161111
 Transform:
   m_ObjectHideFlags: 0
@@ -488,6 +497,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 737875366}
   m_RootOrder: 1
+--- !u!1 &1115731416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1115731418}
+  - 114: {fileID: 1115731417}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1115731417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115731416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8acbf580bad9b2d4aa373e151fe31ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1115731418
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115731416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.9089851, y: 6.59846544, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1001 &1233945563
 Prefab:
   m_ObjectHideFlags: 0
@@ -497,11 +545,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.39866304
+      value: -4.55338669
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.5327616
+      value: 20.8459225
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -545,11 +593,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 50.8652611
+      value: 47.3634033
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.2689762
+      value: 21.1519318
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -591,6 +639,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a16b871ca84a3794881790f58347a0aa, type: 2}
+    - target: {fileID: 11400006, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
+      propertyPath: playerID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
   m_RootGameObject: {fileID: 1877648864}
@@ -680,12 +732,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f480712871bed439a233add5ab6e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatType: 0
+  boatType: -1
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
   - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
+  - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
+  - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
+  - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
+  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
 --- !u!1 &1858891922
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,12 +782,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f480712871bed439a233add5ab6e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boatType: 2
+  boatType: -1
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
   - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
+  - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
+  - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
+  - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
+  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
 --- !u!1 &1877648864
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +832,7 @@ MonoBehaviour:
   airControl: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   jumpMax: 2
   playerID: 1
 --- !u!50 &1877648866
@@ -839,7 +899,7 @@ Transform:
   m_PrefabInternal: {fileID: 1305932928}
   m_GameObject: {fileID: 1877648864}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
-  m_LocalPosition: {x: 50.8652611, y: 14.2689762, z: 0}
+  m_LocalPosition: {x: 47.3634033, y: 21.1519318, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -884,6 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60defb189df556441a16825298d7d8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
 --- !u!1001 &1877997819
 Prefab:
   m_ObjectHideFlags: 0
@@ -925,7 +986,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
       propertyPath: boatType
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
@@ -972,7 +1033,7 @@ MonoBehaviour:
   airControl: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   jumpMax: 2
   playerID: 0
 --- !u!50 &1964627483
@@ -1039,7 +1100,7 @@ Transform:
   m_PrefabInternal: {fileID: 1233945563}
   m_GameObject: {fileID: 1964627481}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
-  m_LocalPosition: {x: -5.39866304, y: 15.5327616, z: 0}
+  m_LocalPosition: {x: -4.55338669, y: 20.8459225, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1084,6 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60defb189df556441a16825298d7d8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 0
 --- !u!1 &1997670056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1247,10 @@ Prefab:
     - target: {fileID: 400000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
+      propertyPath: boatType
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8648b4446d25f4947b27e6a3a4d2c1ae, type: 2}
