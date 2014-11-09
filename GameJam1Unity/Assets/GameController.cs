@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure; // Required in C#
 
 public class GameController : MonoBehaviour {
 
@@ -10,6 +11,13 @@ public class GameController : MonoBehaviour {
 	private static bool exists = false;
 	private static bool setup = true;
 	private static bool afterScreen = false;
+
+	PlayerIndex playerIndex = (PlayerIndex)0;
+	GamePadState state;
+	GamePadState prevState;
+
+
+
 	// Use this for initialization
 	void Start () {
 		if(exists) {
@@ -22,17 +30,19 @@ public class GameController : MonoBehaviour {
 	}
 
 	static public void playerLoss(int i) {
-		playerScores[1 - (i % 2)] += 1;
-		currentRound += 1;
-		toAfterScreen();
+		if(! afterScreen) {
+			playerScores[1 - (i % 2)] += 1;
+			currentRound += 1;
+			toAfterScreen();
+		}
 	}
 	
 
 	private static bool winCheck() {
-		if(playerScores[0] == numberOfRounds || playerScores[1] == numberOfRounds) {
+		if(firstTo && (playerScores[0] >= numberOfRounds || playerScores[1] >= numberOfRounds)) {
 			return true;
 		}
-		else if(currentRound > numberOfRounds) {
+		else if(!firstTo && currentRound > numberOfRounds+1) {
 			return true;
 		}
 		return false;
@@ -40,8 +50,6 @@ public class GameController : MonoBehaviour {
 
 	private static void toAfterScreen() {
 		afterScreen = true;
-		Debug.Log("FUCKING LOAD ");
-		Application.LoadLevel(2);
 	}
 	private static void backToSetup() {
 		playerScores = new int[2] {0,0};
@@ -53,6 +61,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		prevState = state;
+		state = GamePad.GetState(playerIndex);
+
 		if(setup) {
 			if(firstTo) {
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.")){
@@ -73,8 +84,6 @@ public class GameController : MonoBehaviour {
 			}
 		}
 		else if(afterScreen) {
-			if(Application.loadedLevel != 2)
-				Application.LoadLevel(2);
 
 			if(!(winCheck())) {
 				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2-60, 100, 30), "Player 1: " + playerScores[0]);

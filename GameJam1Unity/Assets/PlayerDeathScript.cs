@@ -7,7 +7,6 @@ public class PlayerDeathScript : MonoBehaviour {
 	public void kill() {
 
 		GameController.playerLoss(playerID);
-
-		Application.LoadLevel(Application.loadedLevel);
+		Destroy(gameObject);
 	}
 }
