@@ -68,23 +68,15 @@ public class GameController : MonoBehaviour {
 		prevState2 = state2;
 		state2 = GamePad.GetState((PlayerIndex)1);
 
-		if(setup) {
+		GUIStyle setupStyle= new GUIStyle();
+		setupStyle.fontSize = 25;
+		setupStyle.normal.textColor = Color.white;
 
-			GUIStyle setupStyle;
+		if(setup) {			
 
-			if(firstTo) {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.") 
-				   || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)
-				   || (state2.Buttons.A == ButtonState.Pressed && prevState2.Buttons.A == ButtonState.Released)){
-				}
-			}
-			else {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), numberOfRounds +" rounds total.")
-				   || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)
-				   || (state2.Buttons.A == ButtonState.Pressed && prevState2.Buttons.A == ButtonState.Released)) {
-					firstTo = true;
-				}
-			}
+			GUI.Label(new Rect(Screen.width / 2 - 85, Screen.height/2-30, 200, 60), "First to "+numberOfRounds+ " wins.", setupStyle);
+
+
 
 			if ((state1.ThumbSticks.Left.X > .1f) && (prevState1.ThumbSticks.Left.X < .1f)
 			    || (state2.ThumbSticks.Left.X > .1f) && (prevState2.ThumbSticks.Left.X < .1f)){
@@ -96,13 +88,12 @@ public class GameController : MonoBehaviour {
 				if(numberOfRounds > 1)
 					numberOfRounds -= 1;
 			}
+									
+			numberOfRounds = (int)GUI.HorizontalSlider(new Rect(Screen.width / 2 - 100, Screen.height/2+20, 200, 30), numberOfRounds, 1f, 25f );
 
+			GUI.Label(new Rect(Screen.width / 2 - 110, Screen.height/2+60, 200, 60), "Press Start to begin!", setupStyle);
 
-
-			numberOfRounds = (int)GUI.HorizontalSlider(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), numberOfRounds, 1f, 25f );
-
-			if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2+60, 100, 30), "Start!") 
-			   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+			if((state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
 			   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
 				setup = false;
 				Application.LoadLevel(1);
@@ -122,9 +113,12 @@ public class GameController : MonoBehaviour {
 		if(afterScreen) {
 
 			if(!(winCheck())) {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), "Next Round!") 
-				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
-				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
+
+				GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height/2 +30, 200, 30), "Press start to begin the next Round!", setupStyle);
+
+				if((state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released))
+				{
 					afterScreen = false;
 					currentRound += 1;
 					Application.LoadLevel(1);
@@ -147,9 +141,10 @@ public class GameController : MonoBehaviour {
 					victoryString = "YOU ALL LOSE";
 					victoryStyle.normal.textColor = Color.black;
 				}
-				GUI.Label(new Rect(Screen.width / 2 - 150, 0, 100, 30), victoryString, victoryStyle);
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +60, 100, 30), "Back to Setup") 
-				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
+				GUI.Label(new Rect(Screen.width / 2 - 150, 150, 100, 30), victoryString, victoryStyle);
+				GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height/2 +30, 200, 30), "Press start to return to Setup!", setupStyle);
+
+				if((state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
 				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
 					afterScreen = false;
 					backToSetup();
