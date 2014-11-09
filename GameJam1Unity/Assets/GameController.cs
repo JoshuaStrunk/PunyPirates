@@ -70,21 +70,27 @@ public class GameController : MonoBehaviour {
 
 		if(setup) {
 			if(firstTo) {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.") || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)){
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.") 
+				   || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)
+				   || (state2.Buttons.A == ButtonState.Pressed && prevState2.Buttons.A == ButtonState.Released)){
 					firstTo = false;
 				}
 			}
 			else {
-				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), numberOfRounds +" rounds total.")|| (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)) {
+				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), numberOfRounds +" rounds total.")
+				   || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)
+				   || (state2.Buttons.A == ButtonState.Pressed && prevState2.Buttons.A == ButtonState.Released)) {
 					firstTo = true;
 				}
 			}
 
-			if ((state1.ThumbSticks.Left.X > .1f) && (prevState1.ThumbSticks.Left.X < .1f) ){
+			if ((state1.ThumbSticks.Left.X > .1f) && (prevState1.ThumbSticks.Left.X < .1f)
+			    || (state2.ThumbSticks.Left.X > .1f) && (prevState2.ThumbSticks.Left.X < .1f)){
 				if(numberOfRounds < 50 )
 					numberOfRounds += 1;
 			}
-			if ((state1.ThumbSticks.Left.X < -.1f) && (prevState1.ThumbSticks.Left.X > -.1f) ){
+			if ((state1.ThumbSticks.Left.X < -.1f) && (prevState1.ThumbSticks.Left.X > -.1f)
+			    || (state2.ThumbSticks.Left.X < -.1f) && (prevState2.ThumbSticks.Left.X > -.1f)){
 				if(numberOfRounds > 1)
 					numberOfRounds -= 1;
 			}
@@ -100,18 +106,20 @@ public class GameController : MonoBehaviour {
 				Application.LoadLevel(1);
 			}
 		}
-		else if(afterScreen) {
+		else {
+			GUIStyle player1= new GUIStyle();
+			player1.fontSize = 100;
+			player1.normal.textColor = Color.red;
+			GUIStyle player2= new GUIStyle();
+			player2.fontSize = 100;
+			player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
+			
+			GUI.Label(new Rect(40,20, 100, 30), playerScores[0].ToString (), player1);
+			GUI.Label(new Rect(Screen.width - 100, 20, 100, 30), playerScores[1].ToString(), player2);
+		}
+		if(afterScreen) {
 
 			if(!(winCheck())) {
-				GUIStyle player1= new GUIStyle();
-				player1.fontSize = 50;
-				player1.normal.textColor = Color.red;
-				GUIStyle player2= new GUIStyle();
-				player2.fontSize = 50;
-				player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
-				
-				GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
-				GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +30, 100, 30), "Next Round!") 
 				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
 				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
@@ -122,25 +130,22 @@ public class GameController : MonoBehaviour {
 			}
 			else {
 				string victoryString;
+				GUIStyle victoryStyle= new GUIStyle();
+				victoryStyle.fontSize = 50;
+
 				if(playerScores[0] > playerScores[1]) {
 					victoryString = "Player 1 Wins!";
+					victoryStyle.normal.textColor = Color.red;
 				}
 				else if(playerScores[1] > playerScores[0]) {
 					victoryString = "Player 2 Wins!";
+					victoryStyle.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
 				}
 				else {
 					victoryString = "YOU ALL LOSE";
+					victoryStyle.normal.textColor = Color.black;
 				}
-				GUIStyle player1= new GUIStyle();
-				player1.fontSize = 50;
-				player1.normal.textColor = Color.red;
-				GUIStyle player2= new GUIStyle();
-				player2.fontSize = 50;
-				player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
-
-				GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
-				GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
-				GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), victoryString);
+				GUI.Label(new Rect(Screen.width / 2 - 150, 0, 100, 30), victoryString, victoryStyle);
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2 +60, 100, 30), "Back to Setup") 
 				   || (state1.Buttons.Start == ButtonState.Pressed && prevState1.Buttons.Start == ButtonState.Released)
 				   || (state2.Buttons.Start == ButtonState.Pressed && prevState2.Buttons.Start == ButtonState.Released)){
@@ -148,17 +153,6 @@ public class GameController : MonoBehaviour {
 					backToSetup();
 				}
 			}
-		}
-		else {
-			GUIStyle player1= new GUIStyle();
-			player1.fontSize = 50;
-			player1.normal.textColor = Color.red;
-			GUIStyle player2= new GUIStyle();
-			player2.fontSize = 50;
-			player2.normal.textColor = new Color(151f/255f, 0f, 195f/255f);
-			
-			GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString (), player1);
-			GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);
 		}
 	}
 	
