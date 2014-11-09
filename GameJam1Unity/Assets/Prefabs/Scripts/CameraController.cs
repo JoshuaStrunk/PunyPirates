@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour {
 		player1.normal.textColor = Color.red;
 		GUIStyle player2= new GUIStyle();
 		player2.fontSize = 50;
-		player2.normal.textColor = Color.blue;
+		player2.normal.textColor = Color.yellow;
 
 		GUI.Label(new Rect(10,0, 100, 30), playerScores[0].ToString(), player1);
 		GUI.Label(new Rect(Screen.width - 50, 0, 100, 30), playerScores[1].ToString(), player2);

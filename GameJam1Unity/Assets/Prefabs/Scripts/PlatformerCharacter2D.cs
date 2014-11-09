@@ -9,7 +9,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 	GamePadState state;
 	GamePadState prevState;
 
-	bool facingRight = true;							// For determining which way the player is currently facing.
+	bool facingRight = false;							// For determining which way the player is currently facing.
 
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
 	[SerializeField] float jumpForce = 425f;			// Amount of force added when the player jumps.	
