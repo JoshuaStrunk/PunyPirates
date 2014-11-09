@@ -645,12 +645,18 @@ MonoBehaviour:
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
-  - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
+  - {fileID: 2800000, guid: 7407a4b8eb7660643858318b3c6ac9ce, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
   - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
-  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  - {fileID: 2800000, guid: 1cbce88c176c30246b12c4f9e6ea1a8e, type: 3}
+  - {fileID: 2800000, guid: b91aa6e7bd3303142b9bef03433a76d3, type: 3}
+  - {fileID: 2800000, guid: 2cc78584a5a077d429caccc9cfbb89fb, type: 3}
+  - {fileID: 2800000, guid: 861bafe0c714c8848ad884316f1152f6, type: 3}
+  - {fileID: 2800000, guid: 6bd52a2f4ce69974ba289123c19535a8, type: 3}
+  - {fileID: 2800000, guid: eccab967a936a0542abd0401802264d7, type: 3}
+  - {fileID: 2800000, guid: 218704981a91c15439685730d2108262, type: 3}
   strayDistance: 20
 --- !u!1 &750847055
 GameObject:
@@ -871,12 +877,18 @@ MonoBehaviour:
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
-  - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
+  - {fileID: 2800000, guid: 7407a4b8eb7660643858318b3c6ac9ce, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
   - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
-  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  - {fileID: 2800000, guid: 1cbce88c176c30246b12c4f9e6ea1a8e, type: 3}
+  - {fileID: 2800000, guid: b91aa6e7bd3303142b9bef03433a76d3, type: 3}
+  - {fileID: 2800000, guid: 2cc78584a5a077d429caccc9cfbb89fb, type: 3}
+  - {fileID: 2800000, guid: 861bafe0c714c8848ad884316f1152f6, type: 3}
+  - {fileID: 2800000, guid: 6bd52a2f4ce69974ba289123c19535a8, type: 3}
+  - {fileID: 2800000, guid: eccab967a936a0542abd0401802264d7, type: 3}
+  - {fileID: 2800000, guid: 218704981a91c15439685730d2108262, type: 3}
   strayDistance: 20
 --- !u!4 &834161111
 Transform:
@@ -1691,7 +1703,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514079394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.651247, y: -80.7221985, z: 0}
+  m_LocalPosition: {x: 18.651247, y: -70.7221985, z: 0}
   m_LocalScale: {x: -742, y: -36.9399986, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1842,12 +1854,18 @@ MonoBehaviour:
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
-  - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
+  - {fileID: 2800000, guid: 7407a4b8eb7660643858318b3c6ac9ce, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
   - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
-  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  - {fileID: 2800000, guid: 1cbce88c176c30246b12c4f9e6ea1a8e, type: 3}
+  - {fileID: 2800000, guid: b91aa6e7bd3303142b9bef03433a76d3, type: 3}
+  - {fileID: 2800000, guid: 2cc78584a5a077d429caccc9cfbb89fb, type: 3}
+  - {fileID: 2800000, guid: 861bafe0c714c8848ad884316f1152f6, type: 3}
+  - {fileID: 2800000, guid: 6bd52a2f4ce69974ba289123c19535a8, type: 3}
+  - {fileID: 2800000, guid: eccab967a936a0542abd0401802264d7, type: 3}
+  - {fileID: 2800000, guid: 218704981a91c15439685730d2108262, type: 3}
   strayDistance: 20
 --- !u!1 &1712201914
 GameObject:
@@ -2148,12 +2166,18 @@ MonoBehaviour:
   boatChunk: {fileID: 100000, guid: 8852c49fae8455348a7d9bf92ce26d4b, type: 2}
   boatTypes:
   - {fileID: 2800000, guid: c203411224ae99043986efcfff046f4f, type: 3}
-  - {fileID: 2800000, guid: 9f9ce99af78b24849acca8bd94b36d87, type: 3}
+  - {fileID: 2800000, guid: 7407a4b8eb7660643858318b3c6ac9ce, type: 3}
   - {fileID: 2800000, guid: 6a94bfa4ea141a640ac59cbaeb74743d, type: 3}
   - {fileID: 2800000, guid: 27768bf56095bb84981e2b7a54b29190, type: 3}
   - {fileID: 2800000, guid: c6f5e0e6b69a213438644929b712d2b5, type: 3}
   - {fileID: 2800000, guid: c6507cb00084ab649bd7c11ee46222fa, type: 3}
-  - {fileID: 2800000, guid: b4f52d4079c9c294787f5bc230af3823, type: 3}
+  - {fileID: 2800000, guid: 1cbce88c176c30246b12c4f9e6ea1a8e, type: 3}
+  - {fileID: 2800000, guid: b91aa6e7bd3303142b9bef03433a76d3, type: 3}
+  - {fileID: 2800000, guid: 2cc78584a5a077d429caccc9cfbb89fb, type: 3}
+  - {fileID: 2800000, guid: 861bafe0c714c8848ad884316f1152f6, type: 3}
+  - {fileID: 2800000, guid: 6bd52a2f4ce69974ba289123c19535a8, type: 3}
+  - {fileID: 2800000, guid: eccab967a936a0542abd0401802264d7, type: 3}
+  - {fileID: 2800000, guid: 218704981a91c15439685730d2108262, type: 3}
   strayDistance: 20
 --- !u!1 &1877648864
 GameObject:

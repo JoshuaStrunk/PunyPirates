@@ -69,11 +69,13 @@ public class GameController : MonoBehaviour {
 		state2 = GamePad.GetState((PlayerIndex)1);
 
 		if(setup) {
+
+			GUIStyle setupStyle;
+
 			if(firstTo) {
 				if(GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height/2, 100, 30), "First to "+numberOfRounds+ " wins.") 
 				   || (state1.Buttons.A == ButtonState.Pressed && prevState1.Buttons.A == ButtonState.Released)
 				   || (state2.Buttons.A == ButtonState.Pressed && prevState2.Buttons.A == ButtonState.Released)){
-					firstTo = false;
 				}
 			}
 			else {
