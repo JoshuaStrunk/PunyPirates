@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
+using XInputDotNetPure; // Required in C#
 
 public class PlatformerCharacter2D : MonoBehaviour 
 {
+
+
+	PlayerIndex playerIndex;
+	GamePadState state;
+	GamePadState prevState;
+
 	bool facingRight = true;							// For determining which way the player is currently facing.
 
 	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
@@ -21,14 +28,20 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     void Start()
 	{
+		playerIndex = (PlayerIndex) playerID;
 		jumpCount = jumpMax;
 	}
 
 	//Non-fixed update cuz we never want to miss a jump
 	void Update()
 	{
+		prevState = state;
+		state = GamePad.GetState(playerIndex);
+
+
+
 		//Uses input manager, space = jump
-		if ((Input.GetAxis("Vertical"+playerID) > .1f) && ((Time.time - lastJump) > jumpWait) ){
+		if ((state.ThumbSticks.Left.Y > .1f) && ((Time.time - lastJump) > jumpWait) ){
 			jump = true;
 			lastJump = Time.time;
 		}
@@ -53,7 +66,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		//Fake added "gravity" to give it that sweet classic platformer feel
 		rigidbody2D.AddForce(new Vector2(0f, -40));
 
-		float h = Input.GetAxis("Horizontal"+playerID);
+		float h = state.ThumbSticks.Left.X;
 
 		// Pass all parameters to the character control script.
 		Move( h , jump );
