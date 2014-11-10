@@ -1413,6 +1413,14 @@ Prefab:
       propertyPath: playerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
+      propertyPath: keyboardControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
+      propertyPath: keyboardControl
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
   m_RootGameObject: {fileID: 1964627481}
@@ -1532,6 +1540,14 @@ Prefab:
     - target: {fileID: 11400006, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
       propertyPath: playerID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
+      propertyPath: keyboardControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
+      propertyPath: keyboardControl
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: e76121dfb58106443aad612a5abf3bf7, type: 2}
@@ -2219,6 +2235,7 @@ MonoBehaviour:
   jump1: {fileID: 8300000, guid: 7defab935af557a488cd6f083e9499df, type: 3}
   jumpMax: 2
   playerID: 1
+  keyboardControl: 0
 --- !u!50 &1877648866
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2361,6 +2378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon: {fileID: 100000, guid: 13560e46369a755489ef54670c4468d8, type: 2}
   playerID: 1
+  keyboardControl: 0
 --- !u!114 &1877648873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2547,6 +2565,7 @@ MonoBehaviour:
   jump1: {fileID: 8300000, guid: 7defab935af557a488cd6f083e9499df, type: 3}
   jumpMax: 2
   playerID: 0
+  keyboardControl: 1
 --- !u!50 &1964627483
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2644,6 +2663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannon: {fileID: 100000, guid: 13560e46369a755489ef54670c4468d8, type: 2}
   playerID: 0
+  keyboardControl: 1
 --- !u!114 &1964627490
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,9 +21,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 	private int jumpCount;
 	public int playerID = 0;
 
-
-	
-
+	public bool keyboardControl;
 
     void Start()
 	{
@@ -37,16 +35,27 @@ public class PlatformerCharacter2D : MonoBehaviour
 		prevState = state;
 		state = GamePad.GetState(playerIndex);
 
-
-
 		//Uses input manager, space = jump
-		if ((state.ThumbSticks.Left.Y > .1f) && (prevState.ThumbSticks.Left.Y < .1f) ){
+		if ( ((state.ThumbSticks.Left.Y > .1f) && (prevState.ThumbSticks.Left.Y < .1f)) || (keyboardControl && Input.GetKeyDown("w"))){
 			jump();
 		}
 
+		float h = state.ThumbSticks.Left.X;
+		// Pass all parameters to the character control script.
+		if (Mathf.Abs (h) > 0f) {
+			Move (h);
+		}
+		else if (keyboardControl) {
+			if (Input.GetKey("a"))
+			{
+				Move(-1);
+			}
+			else if (Input.GetKey("d"))
+			{
+				Move (1);
+			}
+		}
 
-
-		
 	}
 
 	void OnTriggerEnter2D() {
@@ -56,7 +65,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
 
-		if (coll.contacts[0].point.y < rigidbody2D.position.y)// && coll.collider.tag != "CannonBall")
+		if (coll.contacts[0].point.y < rigidbody2D.position.y)
 		{
 			jumpCount = jumpMax; 
 		}
@@ -65,13 +74,10 @@ public class PlatformerCharacter2D : MonoBehaviour
 	}
 	
 	//Do actual physics and shiz fixed so we don't get different results at different dt's
-	void FixedUpdate()
+	void FixedUpdate ()
 	{
 
-		float h = state.ThumbSticks.Left.X;
-		// Pass all parameters to the character control script.
-		if(Mathf.Abs(h) > 0f) 
-		Move( h );
+
 
 	}
 
