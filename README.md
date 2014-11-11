@@ -8,12 +8,12 @@ So our final results is a game called Puny Pirates! It is a 1v1, arcade fighting
 
 To Play
 ===========
-Currently only support Windows.
-You can get all of are alpha builds here TAMUGameJam1/GameJam1Unity/Builds/ 
+Currently Puny Pirates! only supports Windows and has only been tested playing with 2 Xbox controllers.
+You can get all of our alpha builds here https://github.com/JoshuaStrunk/TAMUGameJam1/tree/master/GameJam1Unity/Builds
 
 If you want an individual build you will need the builds data folder and its exe. Currently our builds only support play with two connected Xbox controllers connected as player 1 and player 2. We have not tested outher gamepads and currently consider them not supported. 
 
 To Build
 =========
-We developed Puny Pirates! using Unity 4.5x on Windows 7. So if you pull our source you should be able to build the project folder TAMUGameJam1/GameJam1Unity/ in Unity 4.5xTAMUGameJam1 / GameJam1Unity
+We developed Puny Pirates! using Unity 4.5x on Windows 7. So if you pull our source you should be able to build the project folder https://github.com/JoshuaStrunk/TAMUGameJam1/tree/master/GameJam1Unity in Unity 4.5x
 
