@@ -1,5 +1,7 @@
 Puny Pirates!
 ============
+Gameplay: http://youtu.be/CJDKxS2Crm0
+
 Game created during Texas A&amp;M University Game Jam on November 7-9, 2014
 
 Won in two categories, "Best Gameplay" and "People's Choice".
