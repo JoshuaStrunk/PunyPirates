@@ -2,6 +2,8 @@ Puny Pirates!
 ============
 Game created during Texas A&amp;M University Game Jam on November 7-9, 2014
 
+Won in two categories, "Best Gameplay" and "People's Choice".
+
 Puny Pirates is a 1v1, arcade fighting game. It uses twin sticks for movement and shooting cannonballs at each other. The overall objective is to throw your opponenent into the water and force them down to Davy Jones' locker. 
 
 To Play
